@@ -2,21 +2,19 @@ const express = require('express')
 const router = express.Router()
 const {
     getGoals,
-    postGoals,
-    updateGoals,
-    deleteGoals
+    postGoal,
+    updateGoal,
+    deleteGoal
 } = require('../controllers/goalController')
 
 router.get('/', getGoals)
+router.post('/', postGoal)
+router.put('/:id', updateGoal)
+router.delete('/:id', deleteGoal)
 
-
-router.post('/', postGoals)
-
-router.put('/:id', updateGoals)
-
-router.delete('/:id', deleteGoals)
-
-
+//as option can chain routes
+// router.route('/').get(getGoals).post(postGoal)
+// router.route('/:id').put(updateGoal).delete(deleteGoal)
 
 
 
